@@ -1,0 +1,20 @@
+/* src/styles/variables.css */
+
+:root {
+  /* --- PALETA DE COLORES L&K CONSTRUCTORA --- */
+  --primary-color: #005691; /* Azul Corporativo L&K */
+  --primary-hover: #004472;
+  --success-color: #8CC63F; /* Verde Éxito */
+  --success-hover: #7ab332;
+  --warning-color: #F7941D; /* Naranja Alerta */
+  --danger-color: #dc2626; /* Rojo Peligro */
+  
+  /* Neutros y Fondos */
+  --bg-color: #f0f2f5;       
+  --text-main: #1e293b;
+  --text-secondary: #64748b;
+  --border-light: #e2e8f0;
+
+  /* Layout */
+  --sidebar-width: 270px;
+}
