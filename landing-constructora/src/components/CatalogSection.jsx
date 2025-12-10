@@ -13,9 +13,9 @@ const CatalogSection = () => {
     return (
         <section 
             id="catalog"
-            style={{ padding: '60px 5%', background: '#fff' }}
+            style={{ padding: '60px 5%', background: 'var(--secondary-color)' }}
         >
-            <h2 style={{ fontSize: '2rem', marginBottom: '40px', textAlign: 'center' }}>
+            <h2 style={{ fontSize: '2rem', marginBottom: '40px', textAlign: 'center', fontWeight: 'bold' }}>
                 Catálogo de nuestros objetos <span style={{ color: 'var(--accent-color)' }}>para 2024</span>
             </h2>
 
@@ -28,23 +28,23 @@ const CatalogSection = () => {
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         className="house-card"
-                        style={{ flex: '1 1 250px', maxWidth: '300px', background: 'var(--secondary-color)', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0,0,0,0.08)' }}
+                        style={{ flex: '1 1 250px', maxWidth: '300px', background: '#fff', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 0 10px rgba(0,0,0,0.1)' }}
                     >
                         {/* Placeholder para la imagen de la casa */}
                         <div style={{ height: '200px', background: '#ddd', borderBottom: '1px solid #ccc' }}>
                             [Imagen de {model.name}]
                         </div>
                         <div style={{ padding: '15px' }}>
-                            <h3 style={{ fontSize: '1.2rem', marginBottom: '5px' }}>{model.name}</h3>
-                            <p style={{ color: '#666' }}>{model.size}</p>
-                            <p style={{ fontWeight: 'bold', marginTop: '10px', color: 'var(--primary-color)' }}>{model.price}</p>
+                            <h3 style={{ fontSize: '1.2rem', marginBottom: '5px' }}>{model.name} / {model.size}</h3>
+                            <p style={{ fontWeight: 'bold', marginTop: '5px', color: 'var(--accent-color)', fontSize: '1.1rem' }}>{model.price}</p>
+                            <button className="cta-button" style={{ width: '100%', marginTop: '15px', padding: '8px' }}>Ver más</button>
                         </div>
                     </motion.div>
                 ))}
             </div>
             
             <div style={{ textAlign: 'center', marginTop: '40px' }}>
-                 <button className="cta-button">Ver Catálogo Completo</button>
+                 {/* El botón de navegación que aparece en el diseño original */}
             </div>
         </section>
     );
