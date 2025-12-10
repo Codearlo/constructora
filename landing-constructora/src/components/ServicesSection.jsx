@@ -10,22 +10,41 @@ const services = [
     { id: '04', title: "Consultoría", desc: "Asesoramiento técnico y legal para tus proyectos.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } }
+};
+
 const ServicesSection = () => {
     return (
         <section className="container" id="servicios">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '50px' }}>
                 <h2 style={{ fontSize: '2.5rem', maxWidth: '500px' }}>Soluciones integrales que ofrecemos</h2>
-                {/* Botón decorativo estilo flecha */}
                 <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'var(--text-main)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
                     <ArrowRight />
                 </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '30px' }}>
+            <motion.div 
+                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '30px' }}
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.2 }} // Repite animación al scrollear
+            >
                 {services.map((item, index) => (
                     <motion.div 
                         key={index}
-                        whileHover={{ y: -10 }}
+                        variants={itemVariants}
+                        whileHover={{ y: -10, transition: { duration: 0.2 } }}
                         style={{ cursor: 'pointer' }}
                     >
                         <div style={{ position: 'relative', borderRadius: 'var(--radius-md)', overflow: 'hidden', height: '320px', marginBottom: '20px' }}>
@@ -38,7 +57,7 @@ const ServicesSection = () => {
                         <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>{item.desc}</p>
                     </motion.div>
                 ))}
-            </div>
+            </motion.div>
         </section>
     );
 };
