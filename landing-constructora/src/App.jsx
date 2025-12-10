@@ -2,9 +2,10 @@
 import './App.css';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
-import TechnologySection from './components/TechnologySection';
-import CatalogSection from './components/CatalogSection';
-import PaymentSection from './components/PaymentSection';
+import StatsSection from './components/StatsSection';
+import ServicesSection from './components/ServicesSection';
+import PortfolioSection from './components/PortfolioSection';
+// Puedes reusar tu PaymentSection anterior al final si deseas, o quitarlo para limpiar
 import Footer from './components/Footer';
 
 function App() {
@@ -13,9 +14,9 @@ function App() {
       <Header />
       <main>
         <HeroSection />
-        <TechnologySection />
-        <CatalogSection />
-        <PaymentSection />
+        <StatsSection />
+        <ServicesSection />
+        <PortfolioSection />
       </main>
       <Footer />
     </div>

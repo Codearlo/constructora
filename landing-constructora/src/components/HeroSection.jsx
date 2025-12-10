@@ -2,90 +2,48 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// ===============================================
-// SOLUCIÓN: Definiciones de las variantes de animación (ESTO DEBE ESTAR AQUÍ)
-// ===============================================
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 }
-};
-
-// ===============================================
+// Importación de imagen con fallback
+let bannerImg;
+try {
+  bannerImg = new URL('../assets/hero-banner.jpg', import.meta.url).href;
+} catch (e) {
+  bannerImg = "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1470&auto=format&fit=crop";
+}
 
 const HeroSection = () => {
   return (
-    <section 
-      className="hero-section"
-      style={{ padding: '0 5% 60px 5%', background: 'var(--secondary-color)' }}
-    >
+    // Reduje el padding superior para que el banner suba un poco más
+    <section style={{ padding: '20px 0 40px', background: '#fff' }}>
+      
+      {/* Usamos la clase .container definida en index.css (94% de ancho) */}
+      <div className="container">
+        
         <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants} // Usa containerVariants
-            style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '0',
-                backgroundColor: 'white',
-                borderRadius: '10px',
-                overflow: 'hidden',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.08)'
-            }}
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          style={{
+            width: '100%',
+            height: '550px', // Un poco más alto para mayor impacto
+            borderRadius: '20px', // Bordes redondeados sutiles
+            overflow: 'hidden',
+            boxShadow: '0 15px 40px rgba(0,0,0,0.08)',
+            position: 'relative',
+            background: '#f0f0f0'
+          }}
         >
-            {/* Contenido de la Tarjeta (Lado Izquierdo) */}
-            <div className="hero-content" style={{ flex: '1 1 500px', padding: '60px 40px', background: '#fff' }}>
-                
-                <motion.h1 variants={itemVariants} style={{ fontSize: '2.5rem', lineHeight: '1.2', marginBottom: '20px' }}>
-                    Casa prefabricada terminada <br />
-                    <span style={{ color: 'var(--accent-color)' }}>desde 100 m²</span> llave en mano en 2 meses
-                </motion.h1>
-
-                <motion.p variants={itemVariants} style={{ fontSize: '1rem', marginBottom: '30px', color: '#666' }}>
-                    Construimos una casa duradera y confiable con un enfoque industrializado y profesionalismo.
-                </motion.p>
-
-                <motion.button variants={itemVariants} className="cta-button" style={{ marginBottom: '40px' }}>
-                    Obtener presupuesto %
-                </motion.button>
-
-                {/* Bloque de Estadísticas */}
-                <motion.div variants={itemVariants} className="stats-bar" style={{ display: 'flex', justifyContent: 'space-between', maxWidth: '400px', borderTop: '1px solid #eee', paddingTop: '20px' }}>
-                    {['65~', '7+', '180+'].map((num, index) => (
-                        <div key={index} className="stat-item" style={{ textAlign: 'center', flex: 1 }}>
-                            <span style={{ display: 'block', fontSize: '2.2rem', fontWeight: '700', color: 'var(--primary-color)' }}>{num}</span>
-                            <span style={{ display: 'block', fontSize: '0.8rem', color: '#666' }}>{
-                                index === 0 ? 'Clientes' : 
-                                index === 1 ? 'Años experiencia' : 'Días Garantía'
-                            }</span>
-                        </div>
-                    ))}
-                </motion.div>
-            </div>
-
-            {/* Imagen (Lado Derecho) */}
-            <motion.div 
-                className="hero-image-container"
-                variants={itemVariants} // Usa itemVariants
-                style={{ 
-                    flex: '1 1 400px', 
-                    minHeight: '450px', 
-                    background: 'url("path_to_house_image.jpg") center/cover',
-                    position: 'relative',
-                    minWidth: '300px'
-                }}
-            >
-                {/* Espacio para la imagen grande de la casa */}
-            </motion.div>
+          <img 
+            src={bannerImg} 
+            alt="Construcción Banner" 
+            style={{ 
+              width: '100%', 
+              height: '100%', 
+              objectFit: 'cover', 
+              objectPosition: 'center'
+            }} 
+          />
         </motion.div>
+      </div>
     </section>
   );
 };

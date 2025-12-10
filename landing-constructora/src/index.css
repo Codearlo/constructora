@@ -1,15 +1,19 @@
 /* src/index.css */
-/* Integración de Josefin Sans (asumimos que ya está en index.html) */
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Colores de Marca L&K: */
-  --primary-color: #0c336b; /* Azul Oscuro */
-  --secondary-color: #f7f7f7; /* Fondo general de las secciones */
-  --accent-color: #38b2ac; /* Turquesa/Verde de acento */
-  --text-dark: #333;
-  --text-light: #fff;
-  --font-family: 'Josefin Sans', sans-serif;
+  /* Colores */
+  --bg-color: #ffffff;
+  --text-main: #1a1a1a;
+  --text-secondary: #666666;
+  --border-color: #e5e5e5;
+  
+  --primary-brand: #0c336b;
+  --accent-brand: #fcd34d;
+
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --font-family: 'Inter', sans-serif;
 }
 
 * {
@@ -20,34 +24,63 @@
 
 body {
   font-family: var(--font-family);
-  color: var(--text-dark);
-  background-color: var(--secondary-color);
+  background-color: var(--bg-color);
+  color: var(--text-main);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3 {
-  font-weight: 600;
-  color: var(--primary-color);
-}
-
-/* Estilos de botones que coinciden con el diseño */
-.cta-button {
-  background-color: var(--primary-color); 
-  color: var(--text-light);
-  border: none;
-  padding: 12px 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.cta-button:hover {
-  background-color: #1a4d92;
+/* --- CLASE CONTAINER ACTUALIZADA --- */
+/* Antes: max-width 1400px y padding 5% */
+/* Ahora: width 94% y max-width 1800px para llenar más pantalla */
+.container {
+  width: 94%;           /* Ocupa casi todo el ancho */
+  max-width: 1800px;    /* Tope muy alto para pantallas gigantes */
+  margin: 0 auto;       /* Centrado */
+  padding: 0 15px;      /* Padding lateral mínimo de seguridad */
 }
 
 section {
-    padding: 60px 5%;
+  padding: 60px 0;      /* Espaciado vertical entre secciones */
+}
+
+h1, h2, h3, h4 {
+  color: var(--text-main);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Botones */
+.btn-primary {
+  background-color: var(--text-main);
+  color: #fff;
+  padding: 12px 32px;
+  border-radius: 50px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary:hover {
+  background-color: var(--primary-brand);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-main);
+  padding: 12px 32px;
+  border-radius: 50px;
+  border: 1px solid var(--border-color);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-outline:hover {
+  border-color: var(--text-main);
+  background-color: #f9f9f9;
 }
