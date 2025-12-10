@@ -2,6 +2,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+// ------------------------------------------
+// ¡AQUÍ ESTÁ LA SOLUCIÓN! Definición de las variables de animación
+// ------------------------------------------
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -16,6 +19,7 @@ const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 }
 };
+// ------------------------------------------
 
 const HeroSection = () => {
   return (
@@ -23,7 +27,7 @@ const HeroSection = () => {
       className="hero-section"
       initial="hidden"
       animate="visible"
-      variants={containerVariants}
+      variants={containerVariants} // Usa containerVariants
       style={{
         display: 'flex',
         flexWrap: 'wrap',
@@ -34,19 +38,24 @@ const HeroSection = () => {
       }}
     >
       <div className="hero-content" style={{ flex: '1 1 500px' }}>
+        
+        {/* Usamos itemVariants aquí: */}
         <motion.h1 variants={itemVariants} style={{ fontSize: '3rem', lineHeight: '1.2', marginBottom: '20px' }}>
           Casa prefabricada terminada <br />
           <span style={{ color: 'var(--accent-color)' }}>desde 100 m²</span> llave en mano en 2 meses
         </motion.h1>
 
+        {/* Usamos itemVariants aquí: */}
         <motion.p variants={itemVariants} style={{ fontSize: '1.1rem', marginBottom: '40px' }}>
           Construimos una casa duradera y confiable con un enfoque industrializado.
         </motion.p>
 
+        {/* Usamos itemVariants aquí: */}
         <motion.button variants={itemVariants} className="cta-button">
           Obtener presupuesto %
         </motion.button>
 
+        {/* Usamos itemVariants aquí: */}
         <motion.div variants={itemVariants} className="stats-bar" style={{ display: 'flex', marginTop: '50px', justifyContent: 'space-between', maxWidth: '400px' }}>
           {['65~', '7+', '180+'].map((num, index) => (
             <div key={index} className="stat-item" style={{ textAlign: 'center' }}>
@@ -62,10 +71,10 @@ const HeroSection = () => {
 
       <motion.div 
         className="hero-image-container"
-        variants={itemVariants}
+        variants={itemVariants} // Usamos itemVariants aquí:
         style={{ flex: '1 1 400px', minHeight: '500px', background: '#ccc', borderRadius: '10px', overflow: 'hidden' }}
       >
-        {/* Usar una imagen real aquí o un fondo placeholder */}
+        {/* Placeholder para la imagen */}
         <div style={{ background: 'url("path_to_your_image.jpg") center/cover', width: '100%', height: '100%' }}>
             [Imagen de la Casa]
         </div>

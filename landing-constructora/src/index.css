@@ -1,12 +1,16 @@
 /* src/index.css */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+/* ... (Importación de Josefin Sans) ... */
 
 :root {
-  --primary-color: #0d0d0d;
+  /* Basado en el logo L&K: */
+  --primary-color: #0c336b; /* Azul oscuro, dominante en el texto y elementos principales */
   --secondary-color: #f7f7f7;
-  --accent-color: #d1b066; /* Dorado o marrón de la marca */
+  --accent-color: #38b2ac; /* Tonalidad verde azulada/turquesa del logo para acentos */
+  --accent-color-light: #fcd34d; /* Amarillo/Dorado para acentos muy específicos */
   --text-dark: #333;
   --text-light: #fff;
+  --font-family: 'Josefin Sans', sans-serif; 
 }
 
 * {
@@ -16,7 +20,7 @@
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--font-family);
   color: var(--text-dark);
   background-color: var(--secondary-color);
   line-height: 1.6;
@@ -29,7 +33,7 @@ h1, h2, h3 {
 
 /* Estilos de botones generales */
 .cta-button {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color); /* Azul oscuro de L&K */
   color: var(--text-light);
   border: none;
   padding: 12px 30px;
@@ -40,5 +44,5 @@ h1, h2, h3 {
 }
 
 .cta-button:hover {
-  background-color: #333;
+  background-color: #1a4d92; /* Un tono un poco más claro del primary-color */
 }
